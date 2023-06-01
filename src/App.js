@@ -1,24 +1,31 @@
 import React from "react";
 import "./App.css";
 
-class App extends React.Component {
+class CheckboxAgeConfirmation extends React.Component {
   state = {
-    text: "Nie możesz obejrzeć tego filmu jeśli masz mniej niż 16 lat!",
+    isConfirmed: false,
   };
 
-  handleChange = () => {};
+  handleChange = () => {
+    this.setState({
+      isConfirmed: !this.state.isConfirmed,
+    });
+  };
 
   render() {
     return (
       <>
         <h1>Kup bilet na horror roku!</h1>
-        <input type="checkbox" onChange={this.handleChange} id="input" />
-        <label htmlFor="input">Mam co najmnie 16 lat</label>
-
-        <p>{this.state.text}</p>
+        <input type="checkbox" id="age" onChange={this.handleChange} />
+        <label htmlFor="age">Mam co najmnie 16 lat</label>
       </>
     );
   }
 }
 
-export default App;
+const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
+const NegativeMessage = () => (
+  <p>Nie możesz obejrzeć tego filmu jeżeli masz mniej niż 16 lat!</p>
+);
+
+export default CheckboxAgeConfirmation;
