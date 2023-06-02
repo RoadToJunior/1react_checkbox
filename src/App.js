@@ -9,19 +9,22 @@ class TicketShop extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      isFormSubmitted: true,
-    });
+    if (!this.state.isFormSubmitted) {
+      this.setState({
+        isFormSubmitted: true,
+      });
+    }
   };
 
   handleChange = () => {
     this.setState({
       isConfirmed: !this.state.isConfirmed,
+      isFormSubmitted: false,
     });
   };
 
   displayMessage = () => {
-    if (this.isFormSubmitted) {
+    if (this.state.isFormSubmitted) {
       if (this.state.isConfirmed) {
         return <PositiveMessage />;
       } else {
