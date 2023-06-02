@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-class CheckboxAgeConfirmation extends React.Component {
+class TicketShop extends React.Component {
   state = {
     isConfirmed: false,
   };
@@ -31,6 +31,7 @@ class CheckboxAgeConfirmation extends React.Component {
           checked={this.state.isConfirmed}
         />
         <label htmlFor="age">Mam co najmnie 16 lat</label>
+        <button onClick={this.handleClick}>Kup bilet</button>
         {this.displayMessage()}
       </>
     );
@@ -38,8 +39,6 @@ class CheckboxAgeConfirmation extends React.Component {
 }
 
 const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
-const NegativeMessage = () => (
-  <p>Nie możesz obejrzeć tego filmu jeżeli masz mniej niż 16 lat!</p>
-);
+const NegativeMessage = () => <p>Nie możesz obejrzeć tego filmu.</p>;
 
-export default CheckboxAgeConfirmation;
+export default TicketShop;
