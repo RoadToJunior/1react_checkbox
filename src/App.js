@@ -23,18 +23,18 @@ class TicketShop extends React.Component {
     });
   };
 
-  displayMessage = () => {
-    if (this.state.isFormSubmitted) {
-      if (this.state.isConfirmed) {
-        return <ValidationMessage txt="Możesz obejrzeć film. Zapraszamy!" />;
-      } else {
-        return <ValidationMessage txt="Nie możesz obejrzeć tego filmu." />;
-      }
-    }
-  };
+  // displayMessage = () => {
+  //   if (this.state.isFormSubmitted) {
+  //     if (this.state.isConfirmed) {
+  //       return <ValidationMessage txt="Możesz obejrzeć film. Zapraszamy!" />;
+  //     } else {
+  //       return <ValidationMessage txt="Nie możesz obejrzeć tego filmu." />;
+  //     }
+  //   }
+  // };
 
   render() {
-    const { isConfirmed } = this.state;
+    const { isConfirmed, isFormSubmitted } = this.state;
     return (
       <>
         <h1>Kup bilet na horror roku!</h1>
@@ -49,14 +49,25 @@ class TicketShop extends React.Component {
           <br />
           <button>Kup bilet</button>
         </form>
-        {this.displayMessage()}
+        {displayMessage(isConfirmed, isFormSubmitted)}
       </>
     );
   }
 }
+
 const ValidationMessage = (props) => {
   const { txt } = props;
   return <p>{txt}</p>;
+};
+
+const displayMessage = (isConfirmed, isFormSubmitted) => {
+  if (isFormSubmitted) {
+    if (isConfirmed) {
+      return <ValidationMessage txt="Możesz obejrzeć film. Zapraszamy!" />;
+    } else {
+      return <ValidationMessage txt="Nie możesz obejrzeć tego filmu." />;
+    }
+  }
 };
 
 // const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
