@@ -26,9 +26,9 @@ class TicketShop extends React.Component {
   displayMessage = () => {
     if (this.state.isFormSubmitted) {
       if (this.state.isConfirmed) {
-        return <PositiveMessage />;
+        return <ValidationMessage txt="Możesz obejrzeć film. Zapraszamy!" />;
       } else {
-        return <NegativeMessage />;
+        return <ValidationMessage txt="Nie możesz obejrzeć tego filmu." />;
       }
     }
   };
@@ -53,8 +53,11 @@ class TicketShop extends React.Component {
     );
   }
 }
+const ValidationMessage = (props) => {
+  return <p>{props.txt}</p>;
+};
 
-const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
-const NegativeMessage = () => <p>Nie możesz obejrzeć tego filmu.</p>;
+// const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
+// const NegativeMessage = () => <p>Nie możesz obejrzeć tego filmu.</p>;
 
 export default TicketShop;
