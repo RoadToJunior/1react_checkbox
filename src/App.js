@@ -34,6 +34,7 @@ class TicketShop extends React.Component {
   };
 
   render() {
+    const { isConfirmed } = this.state;
     return (
       <>
         <h1>Kup bilet na horror roku!</h1>
@@ -42,7 +43,7 @@ class TicketShop extends React.Component {
             type="checkbox"
             id="age"
             onChange={this.handleChange}
-            checked={this.state.isConfirmed}
+            checked={isConfirmed}
           />
           <label htmlFor="age">Mam co najmnie 16 lat</label>
           <br />
@@ -54,7 +55,8 @@ class TicketShop extends React.Component {
   }
 }
 const ValidationMessage = (props) => {
-  return <p>{props.txt}</p>;
+  const { txt } = props;
+  return <p>{txt}</p>;
 };
 
 // const PositiveMessage = () => <p>Możesz obejrzeć film. Zapraszamy!</p>;
