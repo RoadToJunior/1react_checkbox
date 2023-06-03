@@ -2,14 +2,10 @@ import React from "react";
 import "./App.css";
 
 const OrderForm = (props) => {
+  const { submit, change, isConfirmed } = props;
   return (
-    <form onSubmit={props.submit}>
-      <input
-        type="checkbox"
-        id="age"
-        onChange={props.change}
-        checked={props.isConfirmed}
-      />
+    <form onSubmit={submit}>
+      <input type="checkbox" id="age" onChange={change} checked={isConfirmed} />
       <label htmlFor="age">Mam co najmnie 16 lat</label>
       <br />
       <button>Kup bilet</button>
